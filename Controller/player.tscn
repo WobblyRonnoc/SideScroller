@@ -1,9 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://clgxi7k4go0dp"]
+[gd_scene load_steps=35 format=3 uid="uid://clgxi7k4go0dp"]
 
 [ext_resource type="Texture2D" uid="uid://dkygdf44myjx0" path="res://Assets/IdleAnim/Blob-Idle1.png" id="1_gwfxt"]
 [ext_resource type="Script" path="res://Controller/player.gd" id="1_k4xxk"]
+[ext_resource type="Texture2D" uid="uid://5mkt2388qpea" path="res://Assets/JumpAnim/JumpAnim16.png" id="2_kk1so"]
 [ext_resource type="Texture2D" uid="uid://7gwo71cx6v14" path="res://Assets/IdleAnim/Blob-Idle2.png" id="2_t60t7"]
 [ext_resource type="Texture2D" uid="uid://djyenbjclcnmq" path="res://Assets/IdleAnim/Blob-Idle3.png" id="3_wtycw"]
+[ext_resource type="Texture2D" uid="uid://da0vfdanc3nv8" path="res://Assets/JumpAnim/JumpAnim15.png" id="3_wwcxf"]
+[ext_resource type="Texture2D" uid="uid://bnj8q4lvlccij" path="res://Assets/JumpAnim/JumpAnim13.png" id="4_ioy4n"]
 [ext_resource type="Texture2D" uid="uid://cp0loxvc8eoya" path="res://Assets/IdleAnim/Blob-Idle4.png" id="4_uweud"]
 [ext_resource type="Texture2D" uid="uid://bne3mrbtr8ewg" path="res://Assets/IdleAnim/Blob-Idle5.png" id="5_h6xmp"]
 [ext_resource type="Texture2D" uid="uid://dnmu6fgq4kyt" path="res://Assets/IdleAnim/Blob-Idle6.png" id="6_edu1s"]
@@ -20,6 +23,15 @@
 [ext_resource type="Texture2D" uid="uid://bsxq3t6hnxa2s" path="res://Assets/MoveAnim/MoveAnim13.png" id="15_3vbuy"]
 [ext_resource type="Texture2D" uid="uid://b6dk3myyay6ru" path="res://Assets/MoveAnim/MoveAnim14.png" id="16_ew3ol"]
 [ext_resource type="Texture2D" uid="uid://b24xp2833ltgl" path="res://Assets/MoveAnim/MoveAnim15.png" id="17_2cvy7"]
+[ext_resource type="Texture2D" uid="uid://cgjq2663yqvma" path="res://Assets/JumpAnim/JumpAnim5.png" id="18_xum51"]
+[ext_resource type="Texture2D" uid="uid://mu7e0fs0vrch" path="res://Assets/JumpAnim/JumpAnim6.png" id="19_46ogc"]
+[ext_resource type="Texture2D" uid="uid://cd881i7r8nabb" path="res://Assets/JumpAnim/JumpAnim7.png" id="20_pf7hv"]
+[ext_resource type="Script" path="res://Controller/JumpingPlayerState.gd" id="21_i1v87"]
+[ext_resource type="Texture2D" uid="uid://bsgglv103xjb1" path="res://Assets/JumpAnim/JumpAnim8.png" id="21_tgq83"]
+[ext_resource type="Texture2D" uid="uid://hlkf2qr2fgdx" path="res://Assets/JumpAnim/JumpAnim9.png" id="22_55bhc"]
+[ext_resource type="Texture2D" uid="uid://cvchn81cfkd5" path="res://Assets/JumpAnim/JumpAnim10.png" id="23_5n4el"]
+[ext_resource type="Texture2D" uid="uid://bxjwptxbevdly" path="res://Assets/JumpAnim/JumpAnim11.png" id="24_slcla"]
+[ext_resource type="Script" path="res://Controller/FallingPlayerState.gd" id="32_ep7tv"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bho"]
 radius = 13.0
@@ -27,6 +39,20 @@ height = 52.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2sfni"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_kk1so")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wwcxf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ioy4n")
+}],
+"loop": true,
+"name": &"fall",
+"speed": 6.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_gwfxt")
@@ -57,6 +83,32 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("18_xum51")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_46ogc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_pf7hv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_tgq83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_55bhc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_5n4el")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_slcla")
+}],
+"loop": false,
+"name": &"jump",
 "speed": 12.0
 }, {
 "frames": [{
@@ -97,7 +149,7 @@ shape = SubResource("CapsuleShape2D_g1bho")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -23)
 sprite_frames = SubResource("SpriteFrames_2sfni")
-animation = &"move"
+animation = &"jump"
 autoplay = "idle"
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
@@ -109,3 +161,9 @@ script = ExtResource("12_wdm4r")
 
 [node name="MovingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("13_3kg4t")
+
+[node name="JumpingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("21_i1v87")
+
+[node name="FallingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("32_ep7tv")
