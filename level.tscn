@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc7u1gou8jfxk"]
+
+[ext_resource type="PackedScene" uid="uid://l5h8x0kknm00" path="res://Platform.tscn" id="1_1dt5e"]
+[ext_resource type="PackedScene" uid="uid://clgxi7k4go0dp" path="res://Controller/player.tscn" id="2_aw0b3"]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("2_aw0b3")]
+position = Vector2(160, 344)
+jump_velocity = -490.0
+
+[node name="Platform" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(464, 377)
+
+[node name="Platform2" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(336, 248)
+
+[node name="Platform4" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(808, 288)
+
+[node name="Platform5" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(1024, 384)
+
+[node name="Platform3" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(680, 248)
+scale = Vector2(1, 8.555)
+
+[node name="Platform6" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(-128, 0)
+scale = Vector2(1, 15.52)
+
+[node name="Platform8" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(1152, 0)
+scale = Vector2(1, 15.52)
+
+[node name="Floor" parent="." instance=ExtResource("1_1dt5e")]
+position = Vector2(-24, 472)
+scale = Vector2(9.36579, 6.33186)
