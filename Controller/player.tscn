@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://clgxi7k4go0dp"]
+[gd_scene load_steps=23 format=3 uid="uid://clgxi7k4go0dp"]
 
 [ext_resource type="Texture2D" uid="uid://dkygdf44myjx0" path="res://Assets/IdleAnim/Blob-Idle1.png" id="1_gwfxt"]
 [ext_resource type="Script" path="res://Controller/player.gd" id="1_k4xxk"]
@@ -10,6 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://dks3iqtmdsh1h" path="res://Assets/IdleAnim/Blob-Idle7.png" id="7_ubx77"]
 [ext_resource type="Texture2D" uid="uid://cs2c8fk1o271y" path="res://Assets/IdleAnim/Blob-Idle8.png" id="8_2rnh7"]
 [ext_resource type="Texture2D" uid="uid://doyskeigyvfco" path="res://Assets/IdleAnim/Blob-Idle9.png" id="9_hohbo"]
+[ext_resource type="Script" path="res://state_machine.gd" id="11_drr3k"]
+[ext_resource type="Texture2D" uid="uid://0yt7mg3nsgjv" path="res://Assets/MoveAnim/MoveAnim9.png" id="11_swehh"]
+[ext_resource type="Texture2D" uid="uid://5nx2y6leps8a" path="res://Assets/MoveAnim/MoveAnim10.png" id="12_qwqf8"]
+[ext_resource type="Script" path="res://Controller/IdlePlayerState.gd" id="12_wdm4r"]
+[ext_resource type="Script" path="res://Controller/MovingPlayerState.gd" id="13_3kg4t"]
+[ext_resource type="Texture2D" uid="uid://d0ypkodh5a83q" path="res://Assets/MoveAnim/MoveAnim11.png" id="13_kgh18"]
+[ext_resource type="Texture2D" uid="uid://b562gjmq724ee" path="res://Assets/MoveAnim/MoveAnim12.png" id="14_qiwwr"]
+[ext_resource type="Texture2D" uid="uid://fa08e6aanuk1" path="res://Assets/MoveAnim/MoveAnim13.png" id="15_3vbuy"]
+[ext_resource type="Texture2D" uid="uid://b20me6se1d2lp" path="res://Assets/MoveAnim/MoveAnim14.png" id="16_ew3ol"]
+[ext_resource type="Texture2D" uid="uid://cuda4bxlafedd" path="res://Assets/MoveAnim/MoveAnim15.png" id="17_2cvy7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bho"]
 radius = 13.0
@@ -46,7 +56,33 @@ animations = [{
 "texture": ExtResource("9_hohbo")
 }],
 "loop": true,
-"name": &"default",
+"name": &"idle",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_swehh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_qwqf8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_kgh18")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_qiwwr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_3vbuy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_ew3ol")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_2cvy7")
+}],
+"loop": true,
+"name": &"move",
 "speed": 12.0
 }]
 
@@ -61,5 +97,16 @@ shape = SubResource("CapsuleShape2D_g1bho")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -23)
 sprite_frames = SubResource("SpriteFrames_2sfni")
-autoplay = "default"
-frame_progress = 0.637663
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.268427
+
+[node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
+script = ExtResource("11_drr3k")
+CURRENT_STATE = NodePath("IdlePlayerState")
+
+[node name="IdlePlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("12_wdm4r")
+
+[node name="MovingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("13_3kg4t")
