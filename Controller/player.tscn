@@ -11,15 +11,15 @@
 [ext_resource type="Texture2D" uid="uid://cs2c8fk1o271y" path="res://Assets/IdleAnim/Blob-Idle8.png" id="8_2rnh7"]
 [ext_resource type="Texture2D" uid="uid://doyskeigyvfco" path="res://Assets/IdleAnim/Blob-Idle9.png" id="9_hohbo"]
 [ext_resource type="Script" path="res://state_machine.gd" id="11_drr3k"]
-[ext_resource type="Texture2D" uid="uid://0yt7mg3nsgjv" path="res://Assets/MoveAnim/MoveAnim9.png" id="11_swehh"]
-[ext_resource type="Texture2D" uid="uid://5nx2y6leps8a" path="res://Assets/MoveAnim/MoveAnim10.png" id="12_qwqf8"]
+[ext_resource type="Texture2D" uid="uid://ka40bmopk1l8" path="res://Assets/MoveAnim/MoveAnim9.png" id="11_swehh"]
+[ext_resource type="Texture2D" uid="uid://n38gk4n0wjam" path="res://Assets/MoveAnim/MoveAnim10.png" id="12_qwqf8"]
 [ext_resource type="Script" path="res://Controller/IdlePlayerState.gd" id="12_wdm4r"]
 [ext_resource type="Script" path="res://Controller/MovingPlayerState.gd" id="13_3kg4t"]
-[ext_resource type="Texture2D" uid="uid://d0ypkodh5a83q" path="res://Assets/MoveAnim/MoveAnim11.png" id="13_kgh18"]
-[ext_resource type="Texture2D" uid="uid://b562gjmq724ee" path="res://Assets/MoveAnim/MoveAnim12.png" id="14_qiwwr"]
-[ext_resource type="Texture2D" uid="uid://fa08e6aanuk1" path="res://Assets/MoveAnim/MoveAnim13.png" id="15_3vbuy"]
-[ext_resource type="Texture2D" uid="uid://b20me6se1d2lp" path="res://Assets/MoveAnim/MoveAnim14.png" id="16_ew3ol"]
-[ext_resource type="Texture2D" uid="uid://cuda4bxlafedd" path="res://Assets/MoveAnim/MoveAnim15.png" id="17_2cvy7"]
+[ext_resource type="Texture2D" uid="uid://vqx1oskkyxm2" path="res://Assets/MoveAnim/MoveAnim11.png" id="13_kgh18"]
+[ext_resource type="Texture2D" uid="uid://iv0x6y2t16g8" path="res://Assets/MoveAnim/MoveAnim12.png" id="14_qiwwr"]
+[ext_resource type="Texture2D" uid="uid://bsxq3t6hnxa2s" path="res://Assets/MoveAnim/MoveAnim13.png" id="15_3vbuy"]
+[ext_resource type="Texture2D" uid="uid://b6dk3myyay6ru" path="res://Assets/MoveAnim/MoveAnim14.png" id="16_ew3ol"]
+[ext_resource type="Texture2D" uid="uid://b24xp2833ltgl" path="res://Assets/MoveAnim/MoveAnim15.png" id="17_2cvy7"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bho"]
 radius = 13.0
@@ -97,9 +97,8 @@ shape = SubResource("CapsuleShape2D_g1bho")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -23)
 sprite_frames = SubResource("SpriteFrames_2sfni")
-animation = &"idle"
+animation = &"move"
 autoplay = "idle"
-frame_progress = 0.268427
 
 [node name="PlayerStateMachine" type="Node" parent="." node_paths=PackedStringArray("CURRENT_STATE")]
 script = ExtResource("11_drr3k")
