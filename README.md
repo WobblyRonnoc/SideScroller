@@ -10,3 +10,9 @@ The 'game' consists of a single room sporting a few platforms, and the player ch
 ![mockup](mockup.png)
 
 
+![demo](https://github.com/WobblyRonnoc/SideScroller/blob/main/State%20Machine%20demo.gif)
+
+
+![State class Code](https://github.com/WobblyRonnoc/SideScroller/blob/main/state.gd)
+
+![State Machine Code](https://github.com/WobblyRonnoc/SideScroller/blob/jump/state_machine.gd)
