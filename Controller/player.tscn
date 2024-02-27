@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://clgxi7k4go0dp"]
+[gd_scene load_steps=36 format=3 uid="uid://clgxi7k4go0dp"]
 
 [ext_resource type="Texture2D" uid="uid://dkygdf44myjx0" path="res://Assets/IdleAnim/Blob-Idle1.png" id="1_gwfxt"]
 [ext_resource type="Script" path="res://Controller/player.gd" id="1_k4xxk"]
@@ -32,6 +32,7 @@
 [ext_resource type="Texture2D" uid="uid://cvchn81cfkd5" path="res://Assets/JumpAnim/JumpAnim10.png" id="23_5n4el"]
 [ext_resource type="Texture2D" uid="uid://bxjwptxbevdly" path="res://Assets/JumpAnim/JumpAnim11.png" id="24_slcla"]
 [ext_resource type="Script" path="res://Controller/FallingPlayerState.gd" id="32_ep7tv"]
+[ext_resource type="Script" path="res://Controller/DancingPlayerState.gd" id="33_jmjqb"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g1bho"]
 radius = 13.0
@@ -167,3 +168,6 @@ script = ExtResource("21_i1v87")
 
 [node name="FallingPlayerState" type="Node" parent="PlayerStateMachine"]
 script = ExtResource("32_ep7tv")
+
+[node name="DancingPlayerState" type="Node" parent="PlayerStateMachine"]
+script = ExtResource("33_jmjqb")
